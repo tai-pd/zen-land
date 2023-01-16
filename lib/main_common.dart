@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:zen_land/flavor_config.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runApp(const MyApp());
+var flavorConfigProvider;
+
+void mainCommon(FlavorConfig config) {
+  flavorConfigProvider = StateProvider((ref) => config);
+
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final FlavorConfig config = ref.read(flavorConfigProvider);
+    print('++++ Config +++++');
+    print(config.appTitle);
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -24,7 +36,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: config.appTitle),
     );
   }
 }
