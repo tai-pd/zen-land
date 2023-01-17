@@ -4,7 +4,7 @@ import 'package:zen_land/main_common.dart';
 
 void main() {
   final devConfig = FlavorConfig();
-  devConfig.appTitle = 'Zen land devvvvvv 123';
+  devConfig.appTitle = 'Zen land dev';
   devConfig.apiEndpoint = {
     Endpoints.items: 'zenlab.api.dev/abc',
     Endpoints.details: 'zenlab.api.dev/abc'
