@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:zen_land/flavor_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zen_land/utils/app_devices.dart';
@@ -57,13 +58,10 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Text('12345'),
-      ),
+    return GetMaterialApp(
+      title: widget.title,
+      defaultTransition: Transition.cupertino,
+      
     );
   }
 }
