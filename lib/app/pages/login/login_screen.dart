@@ -1,18 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:zen_land/ui/ui.dart';
+import 'package:zen_land/ui/base/base_page_screen_state.dart';
+import 'package:zen_land/ui/base/base_screen_mixin.dart';
 import './login_controller.dart';
 
-class LoginScreen extends BaseScreen<LoginController> {
+class LoginScreen extends BasePageScreenState<LoginController>
+    with BaseScreenMixin {
   LoginScreen({super.key});
 
   @override
-  Widget? builder() {
-    return Scaffold(
-      body: _body,
-    );
+  bool get backButton => false;
+
+  @override
+  bool get optionButton => false;
+
+  @override
+  String appBarTitle() {
+    return 'Login';
   }
 
-  get _body {
-    return Column();
+  @override
+  Widget body() {
+    return Container();
+  }
+
+  @override
+  void onBackButton() {}
+
+  @override
+  void onOptionButton() {
+    // TODO: implement onOptionButton
   }
 }

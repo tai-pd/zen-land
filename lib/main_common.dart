@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:zen_land/flavor_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zen_land/routes/app_pages.dart';
 import 'package:zen_land/utils/app_devices.dart';
 
 // ignore: prefer_typing_uninitialized_variables
@@ -61,7 +62,8 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
     return GetMaterialApp(
       title: widget.title,
       defaultTransition: Transition.cupertino,
-      
+      initialRoute: Routes.LOGIN,
+      getPages: AppPages.pages,
     );
   }
 }
